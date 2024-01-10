@@ -1,6 +1,6 @@
 {
   "name": "@superform-xyz/react-data-grid",
-  "version": "7.0.1",
+  "version": "5.1.0",
   "license": "MIT",
   "description": "Feature-rich and customizable data grid React component",
   "keywords": [

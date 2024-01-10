@@ -1,3 +1,26 @@
+## [5.1.0](https://github.com/superform-xyz/react-data-grid/compare/v5.0.4...5.1.0) (2024-01-10)
+
+
+### Features
+
+* Add DataGridComponentsProvider component and DataGrid.components prop ([#2754](https://github.com/superform-xyz/react-data-grid/issues/2754)) ([f864291](https://github.com/superform-xyz/react-data-grid/commit/f864291d5b44a58f29d20f11e1c5ee1b7f7420fb))
+* Add support for flex column width ([#2839](https://github.com/superform-xyz/react-data-grid/issues/2839)) ([4a136ad](https://github.com/superform-xyz/react-data-grid/commit/4a136adaed227a356d9a9ab9e5d1c332f7a206b1))
+* expose scroll event ([#2011](https://github.com/superform-xyz/react-data-grid/issues/2011)) ([7614c8e](https://github.com/superform-xyz/react-data-grid/commit/7614c8ef3127fcb3ae71dcd4604ae7677b7b9c0e))
+* RTL ([#2803](https://github.com/superform-xyz/react-data-grid/issues/2803)) ([c0e4a63](https://github.com/superform-xyz/react-data-grid/commit/c0e4a632ce3c9163c68f5e4fe99d70d35520befe))
+* semantic release installed and configured ([e71bfe6](https://github.com/superform-xyz/react-data-grid/commit/e71bfe6c996c896ef9ba4db96aacdee47d47ebb8))
+
+
+### Bug Fixes
+
+* drag jumps to the right due to the failed merge ([#1564](https://github.com/superform-xyz/react-data-grid/issues/1564)) ([7033a1b](https://github.com/superform-xyz/react-data-grid/commit/7033a1bf24956bb1530f3e44ca7131f619363845))
+* isSelectedCellEditable row getter idx ([#1743](https://github.com/superform-xyz/react-data-grid/issues/1743)) ([018f137](https://github.com/superform-xyz/react-data-grid/commit/018f1375f0439037e34769117ddb5a827421543d))
+* package-lock.json added to version control ([df39113](https://github.com/superform-xyz/react-data-grid/commit/df39113cff4255d96212f27528ee14ee25624fe3))
+
+
+### Reverts
+
+* Revert "Dependabot: set versioning-strategy to increase (#2479)" (#2511) ([0bedc81](https://github.com/superform-xyz/react-data-grid/commit/0bedc816a57771f0068732642f11d7e145d34c09))
+
 # Changelog
 
 ## v7.0.0-canary.48
