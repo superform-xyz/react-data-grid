@@ -1,0 +1,66 @@
+name: "Semantic release"
+
+concurrency:
+  group: semantic-release
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read # for checkout
+
+
+jobs:
+  release:
+    if: ${{ github.event.repository.full_name == github.repository }} && {{ !contains(github.event.head_commit.message, "skip ci") }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          # Whether to configure the token or SSH key with the local git config
+          # Default: true
+          persist-credentials: false # <--- checking this in commit context
+
+      - name: "Setup node (version from .nvmrc)"
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: "Install dependencies"
+        run: |
+          npm clean-install
+
+      - name: "Verify the integrity of provenance attestations and registry signatures for installed dependencies"
+        run: |
+          npm audit signatures
+
+      - name: "Lint"
+        run: |
+          npm run lint
+
+      - name: "Semantic release"
+        run: npm run semantic-release
+        env:
+          GA_SEMANTIC_RELEASE: true
+          HUSKY: 0
+          CI: true
+          GITHUB_HEAD_REF: $GITHUB_HEAD_REF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+
+      - name: "Publish artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist.zip
