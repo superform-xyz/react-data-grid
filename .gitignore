@@ -4,15 +4,7 @@
 /node_modules
 /tmp
 /.eslintcache
-/package-lock.json
 
 npm-debug.log
 **.orig
-/.idea/codeStyles/codeStyleConfig.xml
-/.idea/codeStyles/Project.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/.gitignore
-/.idea/modules.xml
-/.idea/php.xml
-/.idea/react-data-grid.iml
-/.idea/vcs.xml
+/.idea
