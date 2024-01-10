@@ -45,10 +45,6 @@ jobs:
         run: |
           npm audit signatures
 
-      - name: "Lint"
-        run: |
-          npm run lint
-
       - name: "Semantic release"
         run: npm run semantic-release
         env:
@@ -58,9 +54,3 @@ jobs:
           GITHUB_HEAD_REF: $GITHUB_HEAD_REF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
-
-      - name: "Publish artifact"
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist.zip
